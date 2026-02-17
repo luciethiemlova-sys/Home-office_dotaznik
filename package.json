@@ -1,0 +1,11 @@
+{
+  "name": "dotaznik-home-office",
+  "version": "1.0.0",
+  "description": "Dotazník: Home office v e-commerce",
+  "scripts": {
+    "deploy": "vercel --prod"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

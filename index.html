@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dotazník: Home office v e-commerce</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="survey-body">
+    <div class="survey-container">
+        <form id="survey-form">
+            <!-- Step 1: Intro & Demographics -->
+            <div class="step active" data-step="1">
+                <h1>Home office v e-commerce</h1>
+                <p class="intro-text">Děkujeme za účast! Tento průzkum pomůže pochopit, proč se zaměstnanci a vedení firem neshodnou na home office, hybridu či kanceláři. Výsledky použiji v přednáškách na Barcamp a Mergado Fest. Anonymní, trvá 3–5 minut.</p>
+                
+                <div class="form-group">
+                    <label class="question" for="kraj">1. Zadejte prosím váš kraj (povinné):</label>
+                    <input type="text" id="kraj" name="kraj" placeholder="Např. Praha, Moravskoslezský kraj..." required>
+                </div>
+
+                <div class="form-group">
+                    <label class="question">2. Jakou roli v e-commerce firmě zastáváte?</label>
+                    <div class="options-grid">
+                        <label class="option-card">
+                            <input type="checkbox" name="role" value="Zaměstnanec"> Zaměstnanec / týmový člen
+                        </label>
+                        <label class="option-card">
+                            <input type="checkbox" name="role" value="Manažer"> Manažer / střední vedení
+                        </label>
+                        <label class="option-card">
+                            <input type="checkbox" name="role" value="CEO"> CEO / COO / majitel firmy
+                        </label>
+                        <label class="option-card">
+                            <input type="checkbox" name="role" value="Zaměstnavatel"> Zaměstnavatel (HR / vedení)
+                        </label>
+                        <label class="option-card">
+                            <input type="checkbox" name="role" value="Jine"> Jiné:
+                            <input type="text" name="role_other" style="margin-top: 8px; width: auto; flex-grow: 1;">
+                        </label>
+                    </div>
+                </div>
+
+                <div class="buttons">
+                    <button type="button" class="next" onclick="nextStep(1)">Další</button>
+                </div>
+            </div>
+
+            <!-- Step 2: Firm & Preference -->
+            <div class="step" data-step="2">
+                <div class="form-group">
+                    <label class="question">3. Velikost vaší firmy (počet zaměstnanců):</label>
+                    <div class="options-grid">
+                        <label class="option-card">
+                            <input type="radio" name="size" value="1-10"> 1–10
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="size" value="11-50"> 11–50
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="size" value="51-200"> 51–200
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="size" value="200+"> 200+
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="question">4. Jaký model práce aktuálně preferujete?</label>
+                    <div class="options-grid">
+                        <label class="option-card">
+                            <input type="radio" name="preference" value="Home Office"> Plný home office
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="preference" value="Hybrid"> Hybrid (kombinace)
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="preference" value="Office"> Plná kancelář
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="preference" value="Jine"> Jiné:
+                            <input type="text" name="preference_other" style="margin-top: 8px; width: auto; flex-grow: 1;">
+                        </label>
+                    </div>
+                </div>
+
+                <div class="buttons">
+                    <button type="button" class="prev" onclick="prevStep(2)">Zpět</button>
+                    <button type="button" class="next" onclick="nextStep(2)">Další</button>
+                </div>
+            </div>
+
+            <!-- Step 3: Productivity Scalers -->
+            <div class="step" data-step="3">
+                <div class="form-group">
+                    <label class="question">5. Jak hodnotíte svou produktivitu? (1 = nejnižší, 10 = nejvyšší)</label>
+                    <div class="scale-container">
+                        <div class="scale-row" data-name="prod_ho">
+                            <span>Home office:</span>
+                            <div class="scale-inputs">
+                                <div class="scale-box" data-val="1">1</div>
+                                <div class="scale-box" data-val="2">2</div>
+                                <div class="scale-box" data-val="3">3</div>
+                                <div class="scale-box" data-val="4">4</div>
+                                <div class="scale-box" data-val="5">5</div>
+                                <div class="scale-box" data-val="6">6</div>
+                                <div class="scale-box" data-val="7">7</div>
+                                <div class="scale-box" data-val="8">8</div>
+                                <div class="scale-box" data-val="9">9</div>
+                                <div class="scale-box" data-val="10">10</div>
+                            </div>
+                            <input type="hidden" name="prod_ho" required>
+                        </div>
+                        <div class="scale-row" data-name="prod_hybrid">
+                            <span>Hybrid:</span>
+                            <div class="scale-inputs">
+                                <div class="scale-box" data-val="1">1</div>
+                                <div class="scale-box" data-val="2">2</div>
+                                <div class="scale-box" data-val="3">3</div>
+                                <div class="scale-box" data-val="4">4</div>
+                                <div class="scale-box" data-val="5">5</div>
+                                <div class="scale-box" data-val="6">6</div>
+                                <div class="scale-box" data-val="7">7</div>
+                                <div class="scale-box" data-val="8">8</div>
+                                <div class="scale-box" data-val="9">9</div>
+                                <div class="scale-box" data-val="10">10</div>
+                            </div>
+                            <input type="hidden" name="prod_hybrid" required>
+                        </div>
+                        <div class="scale-row" data-name="prod_office">
+                            <span>Kancelář:</span>
+                            <div class="scale-inputs">
+                                <div class="scale-box" data-val="1">1</div>
+                                <div class="scale-box" data-val="2">2</div>
+                                <div class="scale-box" data-val="3">3</div>
+                                <div class="scale-box" data-val="4">4</div>
+                                <div class="scale-box" data-val="5">5</div>
+                                <div class="scale-box" data-val="6">6</div>
+                                <div class="scale-box" data-val="7">7</div>
+                                <div class="scale-box" data-val="8">8</div>
+                                <div class="scale-box" data-val="9">9</div>
+                                <div class="scale-box" data-val="10">10</div>
+                            </div>
+                            <input type="hidden" name="prod_office" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="buttons">
+                    <button type="button" class="prev" onclick="prevStep(3)">Zpět</button>
+                    <button type="button" class="next" onclick="nextStep(3)">Další</button>
+                </div>
+            </div>
+
+            <!-- Step 4: Advantages & Disadvantages -->
+            <div class="step" data-step="4">
+                <div class="form-group">
+                    <label class="question">6. Co je pro vás největší výhoda home office? (max 2):</label>
+                    <span class="max-selection-hint">Můžete vybrat až 2 možnosti</span>
+                    <div class="options-grid">
+                        <label class="option-card">
+                            <input type="checkbox" name="advantage" value="Freedom"> Svoboda a flexibilita
+                        </label>
+                        <label class="option-card">
+                            <input type="checkbox" name="advantage" value="Savings"> Úspora času / nákladů
+                        </label>
+                        <label class="option-card">
+                            <input type="checkbox" name="advantage" value="Productivity"> Vyšší produktivita doma
+                        </label>
+                        <label class="option-card">
+                            <input type="checkbox" name="advantage" value="Balance"> Lepší work-life balance
+                        </label>
+                        <label class="option-card">
+                            <input type="checkbox" name="advantage" value="Jine"> Jiné:
+                            <input type="text" name="advantage_other" style="margin-top: 8px; width: auto; flex-grow: 1;">
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="question">7. Co je pro vás největší nevýhoda home office? (max 2):</label>
+                    <span class="max-selection-hint">Můžete vybrat až 2 možnosti</span>
+                    <div class="options-grid">
+                        <label class="option-card">
+                            <input type="checkbox" name="disadvantage" value="Culture"> Slabá firemní kultura / spojení
+                        </label>
+                        <label class="option-card">
+                            <input type="checkbox" name="disadvantage" value="Visibility"> Nižší viditelnost pro šéfy
+                        </label>
+                        <label class="option-card">
+                            <input type="checkbox" name="disadvantage" value="Control"> Potřeba kontroly
+                        </label>
+                        <label class="option-card">
+                            <input type="checkbox" name="disadvantage" value="Isolation"> Izolace / technické problémy
+                        </label>
+                        <label class="option-card">
+                            <input type="checkbox" name="disadvantage" value="Jine"> Jiné:
+                            <input type="text" name="disadvantage_other" style="margin-top: 8px; width: auto; flex-grow: 1;">
+                        </label>
+                    </div>
+                </div>
+
+                <div class="buttons">
+                    <button type="button" class="prev" onclick="prevStep(4)">Zpět</button>
+                    <button type="button" class="next" onclick="nextStep(4)">Další</button>
+                </div>
+            </div>
+
+            <!-- Step 5: Conflicts & Examples -->
+            <div class="step" data-step="5">
+                <div class="form-group">
+                    <label class="question">8. Jak často vznikají střety ohledně home office?</label>
+                    <div class="options-grid">
+                        <label class="option-card">
+                            <input type="radio" name="conflicts" value="Daily"> Každý den/týden
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="conflicts" value="Sometimes"> Občas (např. při hodnocení)
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="conflicts" value="Rarely"> Vzácně
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="conflicts" value="Never"> Nikdy
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="question">9. Popište krátce reálný příklad střetu z vaší zkušenosti:</label>
+                    <textarea name="conflict_example" rows="4" placeholder="Co ho způsobilo a jak jste ho řešili?"></textarea>
+                </div>
+
+                <div class="buttons">
+                    <button type="button" class="prev" onclick="prevStep(5)">Zpět</button>
+                    <button type="button" class="next" onclick="nextStep(5)">Další</button>
+                </div>
+            </div>
+
+            <!-- Step 6: Solutions & E-commerce -->
+            <div class="step" data-step="6">
+                <div class="form-group">
+                    <label class="question">10. Co by podle vás pomohlo dosáhnout shody?</label>
+                    <textarea name="solution" rows="4" placeholder="Nástroje, pravidla, kompromisy..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="question">11. Jakou roli hraje e-commerce specificky (rychlý růst, sezónnost)?</label>
+                    <textarea name="ecommerce_role" rows="4"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="question">Chcete-li výsledky průzkumu, napište váš e-mail:</label>
+                    <input type="text" name="user_email" placeholder="vas@email.cz">
+                </div>
+
+                <div class="buttons">
+                    <button type="button" class="prev" onclick="prevStep(6)">Zpět</button>
+                    <button type="submit" class="next">Odeslat dotazník</button>
+                </div>
+            </div>
+
+            <!-- Step 7: Final -->
+            <div class="step" data-step="7">
+                <div class="success-message">
+                    <i>✓</i>
+                    <h1>Děkujeme za vaše odpovědi!</h1>
+                    <p class="intro-text">Vaše odpovědi byly úspěšně zaznamenány. Pomohou nám v přednáškách na Barcamp a Mergado Fest.</p>
+                </div>
+            </div>
+            
+            <div class="progress-bar" id="progress"></div>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
