@@ -9,7 +9,7 @@ function doPost(e) {
                 "Čas", "Kraj", "Role", "Velikost firmy", "Preference",
                 "Prod. HO", "Prod. Hybrid", "Prod. Office",
                 "Výhody", "Nevýhody", "Frekvence střetů",
-                "Příklad střetu", "Řešení", "Role e-commerce", "Email"
+                "Příklad střetu", "Řešení", "Email"
             ]);
         }
 
@@ -28,7 +28,6 @@ function doPost(e) {
             data.conflicts,
             data.conflict_example,
             data.solution,
-            data.ecommerce_role,
             data.user_email
         ]);
 
