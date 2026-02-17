@@ -6,34 +6,48 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Handle Option Card Selections
     document.querySelectorAll('.option-card').forEach(card => {
+        const input = card.querySelector('input[type="radio"], input[type="checkbox"]');
+        const textInput = card.querySelector('input[type="text"]');
+
+        if (input.checked) card.classList.add('selected');
+
+        // Kliknutí na kartu (pokud nebylo kliknuto přímo na input)
         card.addEventListener('click', (e) => {
-            const input = card.querySelector('input[type="radio"], input[type="checkbox"]');
-            if (e.target !== input && e.target.tagName !== 'INPUT') {
+            if (e.target.tagName !== 'INPUT') {
                 input.click();
             }
         });
 
-        const input = card.querySelector('input');
+        // Obsluha změny stavu
         input.addEventListener('change', () => {
             if (input.type === 'radio') {
-                // Remove selected from others in same group
-                const groupName = input.name;
-                document.querySelectorAll(`input[name="${groupName}"]`).forEach(btn => {
+                document.querySelectorAll(`input[name="${input.name}"]`).forEach(btn => {
                     btn.closest('.option-card').classList.toggle('selected', btn.checked);
                 });
-            } else if (input.type === 'checkbox') {
-                // Validation for max 2 selections
-                const groupName = input.name;
-                if (groupName === 'advantage' || groupName === 'disadvantage') {
-                    const checked = document.querySelectorAll(`input[name="${groupName}"]:checked`);
+            } else {
+                // Checkbox max-2 validation
+                if (input.name === 'advantage' || input.name === 'disadvantage') {
+                    const checked = document.querySelectorAll(`input[name="${input.name}"]:checked`);
                     if (checked.length > 2) {
                         input.checked = false;
                         alert('Prosím, vyberte maximálně 2 možnosti.');
+                        return;
                     }
                 }
                 card.classList.toggle('selected', input.checked);
             }
         });
+
+        // Prevence double-toggle u textových polí
+        if (textInput) {
+            textInput.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (!input.checked) {
+                    input.checked = true;
+                    input.dispatchEvent(new Event('change'));
+                }
+            });
+        }
     });
 
     // Handle Scale Selections
@@ -96,22 +110,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             const formData = new FormData(form);
-            const response = await fetch('https://formspree.io/f/mqaebrda', {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
+            const data = Object.fromEntries(formData.entries());
+
+            // Sloučení checkboxů se stejným názvem (role, advantage, disadvantage)
+            const checkboxes = ['role', 'advantage', 'disadvantage'];
+            checkboxes.forEach(name => {
+                const values = formData.getAll(name).join(', ');
+                data[name] = values;
+                // Přidání "jiné" textu k hodnotám, pokud je vyplněn
+                if (data[`${name}_other`] && data[`${name}_other`].trim() !== '') {
+                    data[name] += (data[name] ? ', ' : '') + data[`${name}_other`];
                 }
             });
 
-            if (response.ok) {
-                goToStep(7); // Show success message
-            } else {
-                alert('Omlouváme se, při odesílání došlo k chybě. Zkuste to prosím znovu.');
-                submitButton.disabled = false;
-                submitButton.textContent = 'Odeslat dotazník';
-            }
+            // Přidání hodnot ze škál
+            data.prod_ho = form.querySelector('input[name="prod_ho"]').value;
+            data.prod_hybrid = form.querySelector('input[name="prod_hybrid"]').value;
+            data.prod_office = form.querySelector('input[name="prod_office"]').value;
+
+            const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzpnI7PmMpiBZp_01zRN6FpypAOR8NCnvgorPPxaLWHPdFHntZgvhS597Whk4yrzXQM/exec';
+
+            await fetch(SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                cache: 'no-cache',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+
+            goToStep(7); // Ukázat úspěch
+
         } catch (error) {
+            console.error('Chyba:', error);
             alert('Došlo k technické chybě. Zkontrolujte prosím připojení k internetu.');
             submitButton.disabled = false;
             submitButton.textContent = 'Odeslat dotazník';

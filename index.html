@@ -1,41 +1,46 @@
 <!DOCTYPE html>
 <html lang="cs">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dotazník: Home office v e-commerce</title>
+    <title>Dotazník: Home office - kde vznikají střety a jak je řešit?</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body id="survey-body">
     <div class="survey-container">
         <form id="survey-form">
             <!-- Step 1: Intro & Demographics -->
             <div class="step active" data-step="1">
-                <h1>Home office v e-commerce</h1>
-                <p class="intro-text">Děkujeme za účast! Tento průzkum pomůže pochopit, proč se zaměstnanci a vedení firem neshodnou na home office, hybridu či kanceláři. Výsledky použiji v přednáškách na Barcamp a Mergado Fest. Anonymní, trvá 3–5 minut.</p>
-                
+                <h1>Home office – kde vznikají střety a jak je řešit?</h1>
+                <p class="intro-text">Děkujeme za účast! Tento průzkum pomůže pochopit, proč se zaměstnanci a vedení
+                    firem neshodnou na home office, hybridu či kanceláři. Výsledky použiji v přednáškách na Barcamp a
+                    Mergado Fest. Anonymní, trvá 3–5 minut.</p>
+
                 <div class="form-group">
                     <label class="question" for="kraj">1. Zadejte prosím váš kraj (povinné):</label>
-                    <input type="text" id="kraj" name="kraj" placeholder="Např. Praha, Moravskoslezský kraj..." required>
+                    <input type="text" id="kraj" name="kraj" placeholder="Např. Praha, Moravskoslezský kraj..."
+                        required>
                 </div>
 
                 <div class="form-group">
                     <label class="question">2. Jakou roli v e-commerce firmě zastáváte?</label>
                     <div class="options-grid">
                         <label class="option-card">
-                            <input type="checkbox" name="role" value="Zaměstnanec"> Zaměstnanec / týmový člen
+                            <input type="radio" name="role" value="Zaměstnanec"> Zaměstnanec / týmový člen
                         </label>
                         <label class="option-card">
-                            <input type="checkbox" name="role" value="Manažer"> Manažer / střední vedení
+                            <input type="radio" name="role" value="Manažer"> Manažer / střední vedení
                         </label>
                         <label class="option-card">
-                            <input type="checkbox" name="role" value="CEO"> CEO / COO / majitel firmy
+                            <input type="radio" name="role" value="CEO"> CEO / COO / majitel firmy
                         </label>
                         <label class="option-card">
-                            <input type="checkbox" name="role" value="Zaměstnavatel"> Zaměstnavatel (HR / vedení)
+                            <input type="radio" name="role" value="Zaměstnavatel"> Zaměstnavatel (HR / vedení)
                         </label>
                         <label class="option-card">
-                            <input type="checkbox" name="role" value="Jine"> Jiné:
+                            <input type="radio" name="role" value="Jine"> Jiné:
                             <input type="text" name="role_other" style="margin-top: 8px; width: auto; flex-grow: 1;">
                         </label>
                     </div>
@@ -80,7 +85,8 @@
                         </label>
                         <label class="option-card">
                             <input type="radio" name="preference" value="Jine"> Jiné:
-                            <input type="text" name="preference_other" style="margin-top: 8px; width: auto; flex-grow: 1;">
+                            <input type="text" name="preference_other"
+                                style="margin-top: 8px; width: auto; flex-grow: 1;">
                         </label>
                     </div>
                 </div>
@@ -173,7 +179,8 @@
                         </label>
                         <label class="option-card">
                             <input type="checkbox" name="advantage" value="Jine"> Jiné:
-                            <input type="text" name="advantage_other" style="margin-top: 8px; width: auto; flex-grow: 1;">
+                            <input type="text" name="advantage_other"
+                                style="margin-top: 8px; width: auto; flex-grow: 1;">
                         </label>
                     </div>
                 </div>
@@ -196,7 +203,8 @@
                         </label>
                         <label class="option-card">
                             <input type="checkbox" name="disadvantage" value="Jine"> Jiné:
-                            <input type="text" name="disadvantage_other" style="margin-top: 8px; width: auto; flex-grow: 1;">
+                            <input type="text" name="disadvantage_other"
+                                style="margin-top: 8px; width: auto; flex-grow: 1;">
                         </label>
                     </div>
                 </div>
@@ -229,7 +237,8 @@
 
                 <div class="form-group">
                     <label class="question">9. Popište krátce reálný příklad střetu z vaší zkušenosti:</label>
-                    <textarea name="conflict_example" rows="4" placeholder="Co ho způsobilo a jak jste ho řešili?"></textarea>
+                    <textarea name="conflict_example" rows="4"
+                        placeholder="Co ho způsobilo a jak jste ho řešili?"></textarea>
                 </div>
 
                 <div class="buttons">
@@ -266,13 +275,15 @@
                 <div class="success-message">
                     <i>✓</i>
                     <h1>Děkujeme za vaše odpovědi!</h1>
-                    <p class="intro-text">Vaše odpovědi byly úspěšně zaznamenány. Pomohou nám v přednáškách na Barcamp a Mergado Fest.</p>
+                    <p class="intro-text">Vaše odpovědi byly úspěšně zaznamenány. Pomohou nám v přednáškách na Barcamp a
+                        Mergado Fest.</p>
                 </div>
             </div>
-            
+
             <div class="progress-bar" id="progress"></div>
         </form>
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>
