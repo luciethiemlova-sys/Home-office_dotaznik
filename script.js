@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
             data.prod_hybrid = form.querySelector('input[name="prod_hybrid"]').value;
             data.prod_office = form.querySelector('input[name="prod_office"]').value;
 
-            const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzpnI7PmMpiBZp_01zRN6FpypAOR8NCnvgorPPxaLWHPdFHntZgvhS597Whk4yrzXQM/exec';
+            const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby3ru8bGEAm7GTSIUQxOkQ6YRqVGH5QjADEm0gyIxnmODxogWFnUp2KOJFXs9vbOT9C/exec';
 
             await fetch(SCRIPT_URL, {
                 method: 'POST',
