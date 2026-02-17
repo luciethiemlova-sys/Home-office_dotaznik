@@ -11,13 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (input.checked) card.classList.add('selected');
 
-        // Kliknutí na kartu (pokud nebylo kliknuto přímo na input)
-        card.addEventListener('click', (e) => {
-            if (e.target.tagName !== 'INPUT') {
-                input.click();
-            }
-        });
-
         // Obsluha změny stavu
         input.addEventListener('change', () => {
             if (input.type === 'radio') {
