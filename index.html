@@ -20,28 +20,45 @@
 
                 <div class="form-group">
                     <label class="question" for="kraj">1. Zadejte prosím váš kraj (povinné):</label>
-                    <input type="text" id="kraj" name="kraj" placeholder="Např. Praha, Moravskoslezský kraj..."
-                        required>
+                    <select id="kraj" name="kraj" required>
+                        <option value="" disabled selected>Vyberte kraj...</option>
+                        <option value="Hlavní město Praha">Hlavní město Praha</option>
+                        <option value="Středočeský kraj">Středočeský kraj</option>
+                        <option value="Jihočeský kraj">Jihočeský kraj</option>
+                        <option value="Plzeňský kraj">Plzeňský kraj</option>
+                        <option value="Karlovarský kraj">Karlovarský kraj</option>
+                        <option value="Ústecký kraj">Ústecký kraj</option>
+                        <option value="Liberecký kraj">Liberecký kraj</option>
+                        <option value="Královéhradecký kraj">Královéhradecký kraj</option>
+                        <option value="Pardubický kraj">Pardubický kraj</option>
+                        <option value="Kraj Vysočina">Kraj Vysočina</option>
+                        <option value="Jihomoravský kraj">Jihomoravský kraj</option>
+                        <option value="Olomoucký kraj">Olomoucký kraj</option>
+                        <option value="Zlínský kraj">Zlínský kraj</option>
+                        <option value="Moravskoslezský kraj">Moravskoslezský kraj</option>
+                    </select>
                 </div>
 
                 <div class="form-group">
-                    <label class="question">2. Jakou roli v e-commerce firmě zastáváte?</label>
+                    <label class="question">2. Jaká je vaše role ve firmě?</label>
                     <div class="options-grid">
                         <label class="option-card">
-                            <input type="radio" name="role" value="Zaměstnanec"> Zaměstnanec / týmový člen
+                            <input type="radio" name="role" value="Specialista" required> Specialista / člen týmu
                         </label>
                         <label class="option-card">
-                            <input type="radio" name="role" value="Manažer"> Manažer / střední vedení
+                            <input type="radio" name="role" value="Teamleader"> Teamleader / manažer
                         </label>
                         <label class="option-card">
-                            <input type="radio" name="role" value="CEO"> CEO / COO / majitel firmy
+                            <input type="radio" name="role" value="C-level"> C-level (CEO, COO, CFO…)
                         </label>
                         <label class="option-card">
-                            <input type="radio" name="role" value="Zaměstnavatel"> Zaměstnavatel (HR / vedení)
+                            <input type="radio" name="role" value="Majitel"> Majitel / spolumajitel
                         </label>
                         <label class="option-card">
-                            <input type="radio" name="role" value="Jine"> Jiné:
-                            <input type="text" name="role_other" style="margin-top: 8px; width: auto; flex-grow: 1;">
+                            <input type="radio" name="role" value="HR"> HR / nábor
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="role" value="Externista"> Externí spolupracovník (freelancer)
                         </label>
                     </div>
                 </div>
