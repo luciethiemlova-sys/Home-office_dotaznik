@@ -105,8 +105,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const formData = new FormData(form);
             const data = Object.fromEntries(formData.entries());
 
-            // Sloučení checkboxů se stejným názvem (role, advantage, disadvantage)
-            const checkboxes = ['role', 'advantage', 'disadvantage'];
+            // Sloučení checkboxů se stejným názvem (advantage, disadvantage)
+            const checkboxes = ['advantage', 'disadvantage'];
             checkboxes.forEach(name => {
                 const values = formData.getAll(name).join(', ');
                 data[name] = values;
@@ -115,11 +115,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     data[name] += (data[name] ? ', ' : '') + data[`${name}_other`];
                 }
             });
-
-            // Přidání hodnot ze škál
-            data.prod_ho = form.querySelector('input[name="prod_ho"]').value;
-            data.prod_hybrid = form.querySelector('input[name="prod_hybrid"]').value;
-            data.prod_office = form.querySelector('input[name="prod_office"]').value;
 
             const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby3ru8bGEAm7GTSIUQxOkQ6YRqVGH5QjADEm0gyIxnmODxogWFnUp2KOJFXs9vbOT9C/exec';
 
