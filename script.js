@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('survey-form');
     const progressBar = document.getElementById('progress');
     const steps = document.querySelectorAll('.step');
-    const totalSteps = steps.length - 1; // Exclude Success step
+    const totalSteps = steps.length - 1; // Exclude Success step (9 now, excluding Step 10)
 
     // Handle Option Card Selections
     document.querySelectorAll('.option-card').forEach(card => {
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // Conditional logic for Step 6 (Management jumping)
+        // Conditional logic for Step 6 (Branching)
         if (currentStep === 6) {
             const role = document.querySelector('input[name="role"]:checked')?.value;
             if (role === 'C-level' || role === 'Majitel') {
@@ -111,18 +111,30 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        // Branching back to common path from Management (7) or Employee (8)
+        if (currentStep === 7 || currentStep === 8) {
+            goToStep(9);
+            return;
+        }
+
         goToStep(currentStep + 1);
     };
 
     window.prevStep = (currentStep) => {
-        // Conditional logic for Step 8 (returning from solutions)
-        if (currentStep === 8) {
+        // Returning to branch from Step 9
+        if (currentStep === 9) {
             const role = document.querySelector('input[name="role"]:checked')?.value;
             if (role === 'C-level' || role === 'Majitel') {
                 goToStep(7);
             } else {
-                goToStep(6);
+                goToStep(8);
             }
+            return;
+        }
+
+        // Returning from Employee branch start
+        if (currentStep === 8) {
+            goToStep(6);
             return;
         }
 
@@ -183,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 body: JSON.stringify(data)
             });
 
-            goToStep(9); // Ukázat úspěch
+            goToStep(10); // Ukázat úspěch
 
         } catch (error) {
             console.error('Chyba:', error);
