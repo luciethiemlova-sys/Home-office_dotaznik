@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
-            const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby3ru8bGEAm7GTSIUQxOkQ6YRqVGH5QjADEm0gyIxnmODxogWFnUp2KOJFXs9vbOT9C/exec';
+            const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyBw3hOp6im5VW1WawlaekCjfQJxQQL6lfGNROtMZr0V4Lo8NWp6h8Qr7mcV0CrT1g9/exec';
 
             await fetch(SCRIPT_URL, {
                 method: 'POST',
