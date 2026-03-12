@@ -221,53 +221,22 @@
                 </div>
             </div>
 
-            <!-- Step 4: Advantages & Disadvantages -->
+            <!-- Step 4: Alignment -->
             <div class="step" data-step="4">
                 <div class="form-group">
-                    <label class="question">5. Co je pro vás největší výhoda home office? (max 2):</label>
-                    <span class="max-selection-hint">Můžete vybrat až 2 možnosti</span>
-                    <div class="options-grid">
-                        <label class="option-card">
-                            <input type="checkbox" name="advantage" value="Freedom"> Svoboda a flexibilita
-                        </label>
-                        <label class="option-card">
-                            <input type="checkbox" name="advantage" value="Savings"> Úspora času / nákladů
-                        </label>
-                        <label class="option-card">
-                            <input type="checkbox" name="advantage" value="Productivity"> Vyšší produktivita doma
-                        </label>
-                        <label class="option-card">
-                            <input type="checkbox" name="advantage" value="Balance"> Lepší work-life balance
-                        </label>
-                        <label class="option-card">
-                            <input type="checkbox" name="advantage" value="Jine"> Jiné:
-                            <input type="text" name="advantage_other"
-                                style="margin-top: 8px; width: auto; flex-grow: 1;">
-                        </label>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="question">6. Co je pro vás největší nevýhoda home office? (max 2):</label>
-                    <span class="max-selection-hint">Můžete vybrat až 2 možnosti</span>
-                    <div class="options-grid">
-                        <label class="option-card">
-                            <input type="checkbox" name="disadvantage" value="Culture"> Slabá firemní kultura / spojení
-                        </label>
-                        <label class="option-card">
-                            <input type="checkbox" name="disadvantage" value="Visibility"> Nižší viditelnost pro šéfy
-                        </label>
-                        <label class="option-card">
-                            <input type="checkbox" name="disadvantage" value="Control"> Potřeba kontroly
-                        </label>
-                        <label class="option-card">
-                            <input type="checkbox" name="disadvantage" value="Isolation"> Izolace / technické problémy
-                        </label>
-                        <label class="option-card">
-                            <input type="checkbox" name="disadvantage" value="Jine"> Jiné:
-                            <input type="text" name="disadvantage_other"
-                                style="margin-top: 8px; width: auto; flex-grow: 1;">
-                        </label>
+                    <label class="question">5. Jak velký je podle vás soulad mezi vedením a zaměstnanci ve vaší firmě v očekáváních ohledně home office?</label>
+                    <p class="sub-question-hint">1 = absolutní nesoulad, 5 = maximální soulad a porozumění. Odpovídejte prosím podle situace ve firmě, kde aktuálně působíte.</p>
+                    <div class="scale-container">
+                        <div class="scale-row">
+                            <div class="scale-inputs">
+                                <div class="scale-box" data-val="1">1</div>
+                                <div class="scale-box" data-val="2">2</div>
+                                <div class="scale-box" data-val="3">3</div>
+                                <div class="scale-box" data-val="4">4</div>
+                                <div class="scale-box" data-val="5">5</div>
+                            </div>
+                            <input type="hidden" name="alignment_score" required>
+                        </div>
                     </div>
                 </div>
 
@@ -277,8 +246,42 @@
                 </div>
             </div>
 
-            <!-- Step 5: Problems & Rules -->
+            <!-- Step 5: Conflicts -->
             <div class="step" data-step="5">
+                <div class="form-group">
+                    <label class="question">6. Vznikají u vás v práci ohledně home office někdy střety nebo neshody mezi vedením a týmem?</label>
+                    <div class="options-grid">
+                        <label class="option-card">
+                            <input type="radio" name="conflicts" value="Nikdy" required> Nikdy
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="conflicts" value="Zřídka"> Zřídka
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="conflicts" value="Občas"> Občas
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="conflicts" value="Často"> Často
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="conflicts" value="Velmi často"> Velmi často
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="question">6.2 Pokud chcete, uveďte příklad, co způsobilo střet (nepovinná):</label>
+                    <textarea name="conflict_example" rows="3" placeholder="Otevřená odpověď..."></textarea>
+                </div>
+
+                <div class="buttons">
+                    <button type="button" class="prev" onclick="prevStep(5)">Zpět</button>
+                    <button type="button" class="next" onclick="nextStep(5)">Další</button>
+                </div>
+            </div>
+
+            <!-- Step 6: Problems -->
+            <div class="step" data-step="6">
                 <div class="form-group">
                     <label class="question">7. Co je podle vás největší problém home office? (max 2):</label>
                     <span class="max-selection-hint">Můžete vybrat až 2 možnosti</span>
@@ -316,11 +319,19 @@
                     </div>
                 </div>
 
+                <div class="buttons">
+                    <button type="button" class="prev" onclick="prevStep(6)">Zpět</button>
+                    <button type="button" class="next" onclick="nextStep(6)">Další</button>
+                </div>
+            </div>
+
+            <!-- Step 7: Rules & Misuse -->
+            <div class="step" data-step="7">
                 <div class="form-group">
                     <label class="question">8. Máte jasně nastavená pravidla pro home office?</label>
                     <div class="options-grid">
                         <label class="option-card">
-                            <input type="radio" name="rules_clarity" value="Ano a fungují"> Ano a fungují
+                            <input type="radio" name="rules_clarity" value="Ano a fungují" required> Ano a fungují
                         </label>
                         <label class="option-card">
                             <input type="radio" name="rules_clarity" value="Ano, ale nefungují"> Ano, ale nefungují
@@ -338,7 +349,7 @@
                     <label class="question">9. Myslíte si, že je home office ve vaší firmě zneužíván?</label>
                     <div class="options-grid">
                         <label class="option-card">
-                            <input type="radio" name="misuse" value="Ano často"> Ano často
+                            <input type="radio" name="misuse" value="Ano často" required> Ano často
                         </label>
                         <label class="option-card">
                             <input type="radio" name="misuse" value="Občas"> Občas
@@ -356,40 +367,15 @@
                 </div>
 
                 <div class="buttons">
-                    <button type="button" class="prev" onclick="prevStep(5)">Zpět</button>
-                    <button type="button" class="next" onclick="nextStep(5)">Další</button>
+                    <button type="button" class="prev" onclick="prevStep(7)">Zpět</button>
+                    <button type="button" class="next" onclick="nextStep(7)">Další</button>
                 </div>
             </div>
 
-            <!-- Step 6: Alignment & Conflicts -->
-            <div class="step" data-step="6">
+            <!-- Step 8: Management Specific (Conditional) -->
+            <div class="step" data-step="8">
                 <div class="form-group">
-                    <label class="question">10. Jak velký je podle vás soulad mezi vedením a zaměstnanci ve vaší firmě v očekáváních ohledně home office?</label>
-                    <p class="sub-question-hint">1 = absolutní nesoulad, 5 = maximální soulad a porozumění. Odpovídejte prosím podle situace ve firmě, kde aktuálně působíte.</p>
-                    <div class="scale-container">
-                        <div class="scale-row">
-                            <div class="scale-inputs">
-                                <div class="scale-box" data-val="1">1</div>
-                                <div class="scale-box" data-val="2">2</div>
-                                <div class="scale-box" data-val="3">3</div>
-                                <div class="scale-box" data-val="4">4</div>
-                                <div class="scale-box" data-val="5">5</div>
-                            </div>
-                            <input type="hidden" name="alignment_score" required>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="buttons">
-                    <button type="button" class="prev" onclick="prevStep(6)">Zpět</button>
-                    <button type="button" class="next" onclick="nextStep(6)">Další</button>
-                </div>
-            </div>
-
-            <!-- Step 7: Management Specific (Conditional) -->
-            <div class="step" data-step="7">
-                <div class="form-group">
-                    <label class="question">11. Čeho se v souvislosti s home office obáváte nejvíce?</label>
+                    <label class="question">10. Čeho se v souvislosti s home office obáváte nejvíce?</label>
                     <div class="options-grid">
                         <label class="option-card">
                             <input type="radio" name="management_fears" value="Pokles výkonu"> Pokles výkonu
@@ -417,7 +403,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="question">12. Jakým způsobem primárně vyhodnocujete výkon lidí při práci na home office?</label>
+                    <label class="question">11. Jakým způsobem primárně vyhodnocujete výkon lidí při práci na home office?</label>
                     <p class="sub-question-hint">(1 odpověď)</p>
                     <div class="options-grid">
                         <label class="option-card">
@@ -452,20 +438,20 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="question">13. Co by vám pomohlo cítit větší jistotu ve vedení týmu/firmy při práci na dálku?</label>
+                    <label class="question">12. Co by vám pomohlo cítit větší jistotu ve vedení týmu/firmy při práci na dálku?</label>
                     <textarea name="management_needs" rows="4" placeholder="Otevřená odpověď..."></textarea>
                 </div>
 
                 <div class="buttons">
-                    <button type="button" class="prev" onclick="prevStep(7)">Zpět</button>
-                    <button type="button" class="next" onclick="nextStep(7)">Další</button>
+                    <button type="button" class="prev" onclick="prevStep(8)">Zpět</button>
+                    <button type="button" class="next" onclick="nextStep(8)">Další</button>
                 </div>
             </div>
 
-            <!-- Step 8: Employee Specific (Conditional) -->
-            <div class="step" data-step="8">
+            <!-- Step 9: Employee Specific (Conditional) -->
+            <div class="step" data-step="9">
                 <div class="form-group">
-                    <label class="question">11. Co vám na home office nejvíce vyhovuje?</label>
+                    <label class="question">10. Co vám na home office nejvíce vyhovuje?</label>
                     <div class="options-grid">
                         <label class="option-card">
                             <input type="radio" name="employee_advantages" value="Flexibilita"> Flexibilita
@@ -486,7 +472,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="question">12. Jak efektivně se vám pracuje při home office ve srovnání s kanceláří?</label>
+                    <label class="question">11. Jak efektivně se vám pracuje při home office ve srovnání s kanceláří?</label>
                     <div class="options-grid">
                         <label class="option-card">
                             <input type="radio" name="employee_efficiency" value="Mnohem méně"> Mnohem méně efektivně než v kanceláři
@@ -507,7 +493,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="question">13. Máte pocit, že vám vedení důvěřuje?</label>
+                    <label class="question">12. Máte pocit, že vám vedení důvěřuje?</label>
                     <div class="options-grid">
                         <label class="option-card">
                             <input type="radio" name="employee_trust" value="Ano"> Ano
@@ -525,20 +511,20 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="question">14. Co by vám pomohlo lépe fungovat na home office?</label>
+                    <label class="question">13. Co by vám pomohlo lépe fungovat na home office?</label>
                     <textarea name="employee_needs" rows="4" placeholder="Otevřená odpověď..."></textarea>
                 </div>
 
                 <div class="buttons">
-                    <button type="button" class="prev" onclick="prevStep(8)">Zpět</button>
-                    <button type="button" class="next" onclick="nextStep(8)">Další</button>
+                    <button type="button" class="prev" onclick="prevStep(9)">Zpět</button>
+                    <button type="button" class="next" onclick="nextStep(9)">Další</button>
                 </div>
             </div>
 
-            <!-- Step 9: Final Question & Email -->
-            <div class="step" data-step="9">
+            <!-- Step 10: Final Question & Email -->
+            <div class="step" data-step="10">
                 <div class="form-group">
-                    <label class="question">15. Kdybyste měli shrnout jednou větou, proč se kolem home office často „nemůžeme domluvit“, co byste řekli?</label>
+                    <label class="question">14. Kdybyste měli shrnout jednou větou, proč se kolem home office často „nemůžeme domluvit“, co byste řekli?</label>
                     <textarea name="summary_reason" rows="4" placeholder="Otevřená odpověď – z toho vzniknou nejlepší citace do prezentace..."></textarea>
                 </div>
 
@@ -548,13 +534,13 @@
                 </div>
 
                 <div class="buttons">
-                    <button type="button" class="prev" onclick="prevStep(9)">Zpět</button>
+                    <button type="button" class="prev" onclick="prevStep(10)">Zpět</button>
                     <button type="submit" class="next">Odeslat dotazník</button>
                 </div>
             </div>
 
-            <!-- Step 10: Final -->
-            <div class="step" data-step="10">
+            <!-- Step 11: Final -->
+            <div class="step" data-step="11">
                 <div class="success-message">
                     <i>✓</i>
                     <h1>Děkujeme za vaše odpovědi!</h1>

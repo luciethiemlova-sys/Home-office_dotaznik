@@ -100,20 +100,20 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // Conditional logic for Step 6 (Branching)
-        if (currentStep === 6) {
+        // Conditional logic for Step 7 (Branching)
+        if (currentStep === 7) {
             const role = document.querySelector('input[name="role"]:checked')?.value;
             if (role === 'C-level' || role === 'Majitel') {
-                goToStep(7);
-            } else {
                 goToStep(8);
+            } else {
+                goToStep(9);
             }
             return;
         }
 
-        // Branching back to common path from Management (7) or Employee (8)
-        if (currentStep === 7 || currentStep === 8) {
-            goToStep(9);
+        // Branching back to common path from Management (8) or Employee (9)
+        if (currentStep === 8 || currentStep === 9) {
+            goToStep(10);
             return;
         }
 
@@ -121,20 +121,20 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     window.prevStep = (currentStep) => {
-        // Returning to branch from Step 9
-        if (currentStep === 9) {
+        // Returning to branch from Step 10
+        if (currentStep === 10) {
             const role = document.querySelector('input[name="role"]:checked')?.value;
             if (role === 'C-level' || role === 'Majitel') {
-                goToStep(7);
-            } else {
                 goToStep(8);
+            } else {
+                goToStep(9);
             }
             return;
         }
 
         // Returning from Employee branch start
-        if (currentStep === 8) {
-            goToStep(6);
+        if (currentStep === 9) {
+            goToStep(7);
             return;
         }
 
@@ -165,15 +165,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const formData = new FormData(form);
             const data = Object.fromEntries(formData.entries());
 
-            // Sloučení checkboxů se stejným názvem (advantage, disadvantage, problems)
-            const checkboxes = ['advantage', 'disadvantage', 'problems'];
+            // Sloučení checkboxů se stejným názvem (problems)
+            const checkboxes = ['problems'];
             checkboxes.forEach(name => {
                 const values = formData.getAll(name).join(', ');
                 data[name] = values;
-                // Přidání "jiné" textu k hodnotám, pokud je vyplněn
-                if (data[`${name}_other`] && data[`${name}_other`].trim() !== '') {
-                    data[name] += (data[name] ? ', ' : '') + data[`${name}_other`];
-                }
             });
 
             // Handle management other fields
