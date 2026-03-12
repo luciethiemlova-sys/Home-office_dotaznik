@@ -100,10 +100,32 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
+        // Conditional logic for Step 6 (Management jumping)
+        if (currentStep === 6) {
+            const role = document.querySelector('input[name="role"]:checked')?.value;
+            if (role === 'C-level' || role === 'Majitel') {
+                goToStep(7);
+            } else {
+                goToStep(8);
+            }
+            return;
+        }
+
         goToStep(currentStep + 1);
     };
 
     window.prevStep = (currentStep) => {
+        // Conditional logic for Step 8 (returning from solutions)
+        if (currentStep === 8) {
+            const role = document.querySelector('input[name="role"]:checked')?.value;
+            if (role === 'C-level' || role === 'Majitel') {
+                goToStep(7);
+            } else {
+                goToStep(6);
+            }
+            return;
+        }
+
         goToStep(currentStep - 1);
     };
 
@@ -142,6 +164,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
+            // Handle management other fields
+            ['management_fears', 'management_evaluation'].forEach(name => {
+                if (data[name] === 'Jine' && data[`${name}_other`]) {
+                    data[name] = data[`${name}_other`];
+                }
+            });
+
             const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby3ru8bGEAm7GTSIUQxOkQ6YRqVGH5QjADEm0gyIxnmODxogWFnUp2KOJFXs9vbOT9C/exec';
 
             await fetch(SCRIPT_URL, {
@@ -154,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 body: JSON.stringify(data)
             });
 
-            goToStep(8); // Ukázat úspěch
+            goToStep(9); // Ukázat úspěch
 
         } catch (error) {
             console.error('Chyba:', error);
