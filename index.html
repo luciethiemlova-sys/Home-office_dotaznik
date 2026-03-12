@@ -277,61 +277,10 @@
                 </div>
             </div>
 
-            <!-- Step 5: Alignment & Conflicts -->
+            <!-- Step 5: Problems & Rules -->
             <div class="step" data-step="5">
                 <div class="form-group">
-                    <label class="question">7. Jak velký je podle vás soulad mezi vedením a zaměstnanci ve vaší firmě v očekáváních ohledně home office?</label>
-                    <p class="sub-question-hint">1 = absolutní nesoulad, 5 = maximální soulad a porozumění. Odpovídejte prosím podle situace ve firmě, kde aktuálně působíte.</p>
-                    <div class="scale-container">
-                        <div class="scale-row">
-                            <div class="scale-inputs">
-                                <div class="scale-box" data-val="1">1</div>
-                                <div class="scale-box" data-val="2">2</div>
-                                <div class="scale-box" data-val="3">3</div>
-                                <div class="scale-box" data-val="4">4</div>
-                                <div class="scale-box" data-val="5">5</div>
-                            </div>
-                            <input type="hidden" name="alignment_score" required>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="question">8. Vznikají u vás v práci ohledně home office někdy střety nebo neshody mezi vedením a týmem?</label>
-                    <div class="options-grid">
-                        <label class="option-card">
-                            <input type="radio" name="conflicts_frequency" value="Nikdy"> Nikdy
-                        </label>
-                        <label class="option-card">
-                            <input type="radio" name="conflicts_frequency" value="Zřídka"> Zřídka
-                        </label>
-                        <label class="option-card">
-                            <input type="radio" name="conflicts_frequency" value="Občas"> Občas
-                        </label>
-                        <label class="option-card">
-                            <input type="radio" name="conflicts_frequency" value="Často"> Často
-                        </label>
-                        <label class="option-card">
-                            <input type="radio" name="conflicts_frequency" value="Velmi často"> Velmi často
-                        </label>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="question">8.2 Pokud chcete, uveďte příklad, co způsobilo střet (nepovinná):</label>
-                    <textarea name="conflict_example" rows="3" placeholder="Uveďte konkrétní situaci..."></textarea>
-                </div>
-
-                <div class="buttons">
-                    <button type="button" class="prev" onclick="prevStep(5)">Zpět</button>
-                    <button type="button" class="next" onclick="nextStep(5)">Další</button>
-                </div>
-            </div>
-
-            <!-- Step 6: Problems & Rules -->
-            <div class="step" data-step="6">
-                <div class="form-group">
-                    <label class="question">9. Co je podle vás největší problém home office? (max 2):</label>
+                    <label class="question">7. Co je podle vás největší problém home office? (max 2):</label>
                     <span class="max-selection-hint">Můžete vybrat až 2 možnosti</span>
                     <div class="options-grid">
                         <label class="option-card">
@@ -368,7 +317,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="question">10. Máte jasně nastavená pravidla pro home office?</label>
+                    <label class="question">8. Máte jasně nastavená pravidla pro home office?</label>
                     <div class="options-grid">
                         <label class="option-card">
                             <input type="radio" name="rules_clarity" value="Ano a fungují"> Ano a fungují
@@ -386,7 +335,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="question">11. Myslíte si, že je home office ve vaší firmě zneužíván?</label>
+                    <label class="question">9. Myslíte si, že je home office ve vaší firmě zneužíván?</label>
                     <div class="options-grid">
                         <label class="option-card">
                             <input type="radio" name="misuse" value="Ano často"> Ano často
@@ -404,6 +353,57 @@
                             <input type="radio" name="misuse" value="Nevím"> Nevím
                         </label>
                     </div>
+                </div>
+
+                <div class="buttons">
+                    <button type="button" class="prev" onclick="prevStep(5)">Zpět</button>
+                    <button type="button" class="next" onclick="nextStep(5)">Další</button>
+                </div>
+            </div>
+
+            <!-- Step 6: Alignment & Conflicts -->
+            <div class="step" data-step="6">
+                <div class="form-group">
+                    <label class="question">10. Jak velký je podle vás soulad mezi vedením a zaměstnanci ve vaší firmě v očekáváních ohledně home office?</label>
+                    <p class="sub-question-hint">1 = absolutní nesoulad, 5 = maximální soulad a porozumění. Odpovídejte prosím podle situace ve firmě, kde aktuálně působíte.</p>
+                    <div class="scale-container">
+                        <div class="scale-row">
+                            <div class="scale-inputs">
+                                <div class="scale-box" data-val="1">1</div>
+                                <div class="scale-box" data-val="2">2</div>
+                                <div class="scale-box" data-val="3">3</div>
+                                <div class="scale-box" data-val="4">4</div>
+                                <div class="scale-box" data-val="5">5</div>
+                            </div>
+                            <input type="hidden" name="alignment_score" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="question">11. Vznikají u vás v práci ohledně home office někdy střety nebo neshody mezi vedením a týmem?</label>
+                    <div class="options-grid">
+                        <label class="option-card">
+                            <input type="radio" name="conflicts_frequency" value="Nikdy"> Nikdy
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="conflicts_frequency" value="Zřídka"> Zřídka
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="conflicts_frequency" value="Občas"> Občas
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="conflicts_frequency" value="Často"> Často
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="conflicts_frequency" value="Velmi často"> Velmi často
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="question">11.2 Pokud chcete, uveďte příklad, co způsobilo střet (nepovinná):</label>
+                    <textarea name="conflict_example" rows="3" placeholder="Uveďte konkrétní situaci..."></textarea>
                 </div>
 
                 <div class="buttons">
