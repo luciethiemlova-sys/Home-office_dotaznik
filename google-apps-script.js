@@ -9,9 +9,11 @@ function doPost(e) {
                 "Čas", "Kraj", "Role", "Velikost firmy",
                 "Převládající režim ve firmě",
                 "Ideální stav (srovnání)", "Aktuální stav (srovnání)",
-                "Výhody", "Nevýhody", "Soulad", "Frekvence střetů",
-                "Příklad střetu", "Největší problémy", "Jasná pravidla", "Zneužívání",
-                "Řešení", "Email"
+                "Výhody (výběr)", "Nevýhody (výběr)", "Soulad (škála)",
+                "Největší problémy (výběr)", "Jasná pravidla", "Zneužívání",
+                "Obavy (Management)", "Vyhodnocování (Management)", "Potřeby vedení (Management)",
+                "Výhody (Employee)", "Efektivita (Employee)", "Důvěra (Employee)", "Potřeby zaměstnanců (Employee)",
+                "Proč se neshodneme (Závěr)", "Email"
             ]);
         }
 
@@ -27,12 +29,17 @@ function doPost(e) {
             data.advantage,
             data.disadvantage,
             data.alignment_score,
-            data.conflicts_frequency,
-            data.conflict_example,
             data.problems,
             data.rules_clarity,
             data.misuse,
-            data.solution,
+            data.management_fears,
+            data.management_evaluation,
+            data.management_needs,
+            data.employee_advantages,
+            data.employee_efficiency,
+            data.employee_trust,
+            data.employee_needs,
+            data.summary_reason,
             data.user_email
         ]);
 
