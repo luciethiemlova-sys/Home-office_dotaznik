@@ -75,6 +75,16 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        // Conditional logic for Step 3
+        if (currentStep === 3) {
+            const actualMode = currentPane.querySelector('input[name="compare_actual"]:checked');
+            if (actualMode && actualMode.value === 'Plně kancelář') {
+                // Trigger form submission
+                form.dispatchEvent(new Event('submit', { cancelable: true }));
+                return;
+            }
+        }
+
         goToStep(currentStep + 1);
     };
 
