@@ -389,7 +389,7 @@
             <!-- Step 7: Management Specific (Conditional) -->
             <div class="step" data-step="7">
                 <div class="form-group">
-                    <label class="question">11V. Čeho se v souvislosti s home office obáváte nejvíce?</label>
+                    <label class="question">11. Čeho se v souvislosti s home office obáváte nejvíce?</label>
                     <div class="options-grid">
                         <label class="option-card">
                             <input type="radio" name="management_fears" value="Pokles výkonu"> Pokles výkonu
@@ -417,7 +417,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="question">12V. Jakým způsobem primárně vyhodnocujete výkon lidí při práci na home office?</label>
+                    <label class="question">12. Jakým způsobem primárně vyhodnocujete výkon lidí při práci na home office?</label>
                     <p class="sub-question-hint">(1 odpověď)</p>
                     <div class="options-grid">
                         <label class="option-card">
@@ -452,7 +452,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="question">13V. Co by vám pomohlo cítit větší jistotu ve vedení týmu/firmy při práci na dálku?</label>
+                    <label class="question">13. Co by vám pomohlo cítit větší jistotu ve vedení týmu/firmy při práci na dálku?</label>
                     <textarea name="management_needs" rows="4" placeholder="Otevřená odpověď..."></textarea>
                 </div>
 
@@ -462,10 +462,83 @@
                 </div>
             </div>
 
-            <!-- Step 8: Solutions & E-commerce -->
+            <!-- Step 8: Employee Specific (Conditional) -->
             <div class="step" data-step="8">
                 <div class="form-group">
-                    <label class="question">12. Co by podle vás pomohlo dosáhnout shody?</label>
+                    <label class="question">11. Co vám na home office nejvíce vyhovuje?</label>
+                    <div class="options-grid">
+                        <label class="option-card">
+                            <input type="radio" name="employee_advantages" value="Flexibilita"> Flexibilita
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="employee_advantages" value="Soustředění"> Větší soustředění, klid na práci
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="employee_advantages" value="Úspora času"> Úspora času za dojíždění
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="employee_advantages" value="Vlastní tempo"> Možnost pracovat vlastním tempem
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="employee_advantages" value="Nic moc"> Nic moc
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="question">12. Jak efektivně se vám pracuje při home office ve srovnání s kanceláří?</label>
+                    <div class="options-grid">
+                        <label class="option-card">
+                            <input type="radio" name="employee_efficiency" value="Mnohem méně"> Mnohem méně efektivně než v kanceláři
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="employee_efficiency" value="Trochu méně"> Trochu méně efektivně než v kanceláři
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="employee_efficiency" value="Stejně"> Stejně efektivně jako v kanceláři
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="employee_efficiency" value="Trochu více"> Trochu efektivněji než v kanceláři
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="employee_efficiency" value="Mnohem více"> Mnohem efektivněji než v kanceláři
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="question">13. Máte pocit, že vám vedení důvěřuje?</label>
+                    <div class="options-grid">
+                        <label class="option-card">
+                            <input type="radio" name="employee_trust" value="Ano"> Ano
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="employee_trust" value="Spíš ano"> Spíš ano
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="employee_trust" value="Spíš ne"> Spíš ne
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="employee_trust" value="Ne"> Ne
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="question">14. Co by vám pomohlo lépe fungovat na home office?</label>
+                    <textarea name="employee_needs" rows="4" placeholder="Otevřená odpověď..."></textarea>
+                </div>
+
+                <div class="buttons">
+                    <button type="button" class="prev" onclick="prevStep(8)">Zpět</button>
+                    <button type="button" class="next" onclick="nextStep(8)">Další</button>
+                </div>
+            </div>
+
+            <!-- Step 9: Solutions & E-commerce -->
+            <div class="step" data-step="9">
+                <div class="form-group">
+                    <label class="question">15. Co by podle vás pomohlo dosáhnout shody?</label>
                     <textarea name="solution" rows="4" placeholder="Nástroje, pravidla, kompromisy..."></textarea>
                 </div>
 
@@ -475,13 +548,13 @@
                 </div>
 
                 <div class="buttons">
-                    <button type="button" class="prev" onclick="prevStep(8)">Zpět</button>
+                    <button type="button" class="prev" onclick="prevStep(9)">Zpět</button>
                     <button type="submit" class="next">Odeslat dotazník</button>
                 </div>
             </div>
 
-            <!-- Step 9: Final -->
-            <div class="step" data-step="9">
+            <!-- Step 10: Final -->
+            <div class="step" data-step="10">
                 <div class="success-message">
                     <i>✓</i>
                     <h1>Děkujeme za vaše odpovědi!</h1>
