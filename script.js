@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             } else {
                 // Checkbox max-2 validation
-                if (input.name === 'advantage' || input.name === 'disadvantage') {
+                if (input.name === 'advantage' || input.name === 'disadvantage' || input.name === 'problems') {
                     const checked = document.querySelectorAll(`input[name="${input.name}"]:checked`);
                     if (checked.length > 2) {
                         input.checked = false;
@@ -52,6 +52,10 @@ document.addEventListener('DOMContentLoaded', () => {
             row.querySelectorAll('.scale-box').forEach(b => b.classList.remove('selected'));
             box.classList.add('selected');
             hiddenInput.value = box.dataset.val;
+
+            // Trigger change event on hidden input if needed for validation
+            const event = new Event('change', { bubbles: true });
+            hiddenInput.dispatchEvent(event);
         });
     });
 
@@ -62,7 +66,18 @@ document.addEventListener('DOMContentLoaded', () => {
         let valid = true;
 
         inputs.forEach(input => {
-            if (!input.value) {
+            // Special check for hidden inputs (like scales)
+            if (input.tagName === 'INPUT' && input.type === 'hidden') {
+                if (!input.value) {
+                    valid = false;
+                    // Highlight the container instead
+                    const container = input.closest('.scale-container');
+                    if (container) container.style.border = '1px solid #ef4444';
+                } else {
+                    const container = input.closest('.scale-container');
+                    if (container) container.style.border = 'none';
+                }
+            } else if (!input.value) {
                 valid = false;
                 input.style.borderColor = '#ef4444';
             } else {
@@ -94,7 +109,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function goToStep(stepNumber) {
         steps.forEach(s => s.classList.remove('active'));
-        document.querySelector(`.step[data-step="${stepNumber}"]`).classList.add('active');
+        const targetStep = document.querySelector(`.step[data-step="${stepNumber}"]`);
+        if (targetStep) targetStep.classList.add('active');
 
         // Update progress bar
         const progressPercent = ((stepNumber - 1) / totalSteps) * 100;
@@ -115,8 +131,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const formData = new FormData(form);
             const data = Object.fromEntries(formData.entries());
 
-            // Sloučení checkboxů se stejným názvem (advantage, disadvantage)
-            const checkboxes = ['advantage', 'disadvantage'];
+            // Sloučení checkboxů se stejným názvem (advantage, disadvantage, problems)
+            const checkboxes = ['advantage', 'disadvantage', 'problems'];
             checkboxes.forEach(name => {
                 const values = formData.getAll(name).join(', ');
                 data[name] = values;
@@ -138,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 body: JSON.stringify(data)
             });
 
-            goToStep(7); // Ukázat úspěch
+            goToStep(8); // Ukázat úspěch
 
         } catch (error) {
             console.error('Chyba:', error);

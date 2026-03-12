@@ -123,32 +123,7 @@
             <!-- Step 3: Productivity Scalers -->
             <div class="step" data-step="3">
                 <div class="form-group">
-                    <label class="question">4. V jakém režimu BYSTE IDEÁLNĚ CHTĚLI pracovat?</label>
-                    <div class="options-grid">
-                        <label class="option-card">
-                            <input type="radio" name="ideal_mode" value="Plně remote" required> Plně remote (většina
-                            lidí pracuje na dálku)
-                        </label>
-                        <label class="option-card">
-                            <input type="radio" name="ideal_mode" value="Hybrid – pevně dané"> Hybrid – pevně dané dny v
-                            kanceláři
-                        </label>
-                        <label class="option-card">
-                            <input type="radio" name="ideal_mode" value="Hybrid – flexibilní"> Hybrid – flexibilní
-                            (docházka není pevně daná)
-                        </label>
-                        <label class="option-card">
-                            <input type="radio" name="ideal_mode" value="Převážně kancelář"> Převážně kancelář (HO jen
-                            výjimečně)
-                        </label>
-                        <label class="option-card">
-                            <input type="radio" name="ideal_mode" value="Plně kancelář"> Plně kancelář
-                        </label>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="question">Jak to máte konkrétně Vy?</label>
+                    <label class="question">4. Jak to máte konkrétně Vy?</label>
                     <p class="sub-question-hint">Označte odpověď v obou sloupcích.</p>
                     
                     <div class="comparison-grid">
@@ -302,30 +277,49 @@
                 </div>
             </div>
 
-            <!-- Step 5: Conflicts & Examples -->
+            <!-- Step 5: Alignment & Conflicts -->
             <div class="step" data-step="5">
                 <div class="form-group">
-                    <label class="question">7. Jak často vznikají střety ohledně home office?</label>
+                    <label class="question">7. Jak velký je podle vás soulad mezi vedením a zaměstnanci ve vaší firmě v očekáváních ohledně home office?</label>
+                    <p class="sub-question-hint">1 = absolutní nesoulad, 5 = maximální soulad a porozumění. Odpovídejte prosím podle situace ve firmě, kde aktuálně působíte.</p>
+                    <div class="scale-container">
+                        <div class="scale-row">
+                            <div class="scale-inputs">
+                                <div class="scale-box" data-val="1">1</div>
+                                <div class="scale-box" data-val="2">2</div>
+                                <div class="scale-box" data-val="3">3</div>
+                                <div class="scale-box" data-val="4">4</div>
+                                <div class="scale-box" data-val="5">5</div>
+                            </div>
+                            <input type="hidden" name="alignment_score" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="question">8. Vznikají u vás v práci ohledně home office někdy střety nebo neshody mezi vedením a týmem?</label>
                     <div class="options-grid">
                         <label class="option-card">
-                            <input type="radio" name="conflicts" value="Daily"> Každý den/týden
+                            <input type="radio" name="conflicts_frequency" value="Nikdy"> Nikdy
                         </label>
                         <label class="option-card">
-                            <input type="radio" name="conflicts" value="Sometimes"> Občas (např. při hodnocení)
+                            <input type="radio" name="conflicts_frequency" value="Zřídka"> Zřídka
                         </label>
                         <label class="option-card">
-                            <input type="radio" name="conflicts" value="Rarely"> Vzácně
+                            <input type="radio" name="conflicts_frequency" value="Občas"> Občas
                         </label>
                         <label class="option-card">
-                            <input type="radio" name="conflicts" value="Never"> Nikdy
+                            <input type="radio" name="conflicts_frequency" value="Často"> Často
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="conflicts_frequency" value="Velmi často"> Velmi často
                         </label>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="question">8. Popište krátce reálný příklad střetu z vaší zkušenosti:</label>
-                    <textarea name="conflict_example" rows="4"
-                        placeholder="Co ho způsobilo a jak jste ho řešili?"></textarea>
+                    <label class="question">8.2 Pokud chcete, uveďte příklad, co způsobilo střet (nepovinná):</label>
+                    <textarea name="conflict_example" rows="3" placeholder="Uveďte konkrétní situaci..."></textarea>
                 </div>
 
                 <div class="buttons">
@@ -334,10 +328,94 @@
                 </div>
             </div>
 
-            <!-- Step 6: Solutions & E-commerce -->
+            <!-- Step 6: Problems & Rules -->
             <div class="step" data-step="6">
                 <div class="form-group">
-                    <label class="question">9. Co by podle vás pomohlo dosáhnout shody?</label>
+                    <label class="question">9. Co je podle vás největší problém home office? (max 2):</label>
+                    <span class="max-selection-hint">Můžete vybrat až 2 možnosti</span>
+                    <div class="options-grid">
+                        <label class="option-card">
+                            <input type="checkbox" name="problems" value="Měření výkonu"> Měření výkonu
+                        </label>
+                        <label class="option-card">
+                            <input type="checkbox" name="problems" value="Důvěra"> Důvěra
+                        </label>
+                        <label class="option-card">
+                            <input type="checkbox" name="problems" value="Komunikace"> Komunikace
+                        </label>
+                        <label class="option-card">
+                            <input type="checkbox" name="problems" value="Produktivita"> Produktivita
+                        </label>
+                        <label class="option-card">
+                            <input type="checkbox" name="problems" value="Work-life balance"> Work-life balance
+                        </label>
+                        <label class="option-card">
+                            <input type="checkbox" name="problems" value="Izolace"> Izolace
+                        </label>
+                        <label class="option-card">
+                            <input type="checkbox" name="problems" value="Nejasná pravidla"> Nejasná pravidla pro home office
+                        </label>
+                        <label class="option-card">
+                            <input type="checkbox" name="problems" value="Technické problémy"> Technické problémy
+                        </label>
+                        <label class="option-card">
+                            <input type="checkbox" name="problems" value="Slabší týmová kultura"> Slabší týmová kultura a vztahy
+                        </label>
+                        <label class="option-card">
+                            <input type="checkbox" name="problems" value="Nic zásadního"> Nic zásadního
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="question">10. Máte jasně nastavená pravidla pro home office?</label>
+                    <div class="options-grid">
+                        <label class="option-card">
+                            <input type="radio" name="rules_clarity" value="Ano a fungují"> Ano a fungují
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="rules_clarity" value="Ano, ale nefungují"> Ano, ale nefungují
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="rules_clarity" value="Spíš ne"> Spíš ne
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="rules_clarity" value="Ne"> Ne
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="question">11. Myslíte si, že je home office ve vaší firmě zneužíván?</label>
+                    <div class="options-grid">
+                        <label class="option-card">
+                            <input type="radio" name="misuse" value="Ano často"> Ano často
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="misuse" value="Občas"> Občas
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="misuse" value="Spíš ne"> Spíš ne
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="misuse" value="Ne vůbec"> Ne vůbec
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="misuse" value="Nevím"> Nevím
+                        </label>
+                    </div>
+                </div>
+
+                <div class="buttons">
+                    <button type="button" class="prev" onclick="prevStep(6)">Zpět</button>
+                    <button type="button" class="next" onclick="nextStep(6)">Další</button>
+                </div>
+            </div>
+
+            <!-- Step 7: Solutions & E-commerce -->
+            <div class="step" data-step="7">
+                <div class="form-group">
+                    <label class="question">12. Co by podle vás pomohlo dosáhnout shody?</label>
                     <textarea name="solution" rows="4" placeholder="Nástroje, pravidla, kompromisy..."></textarea>
                 </div>
 
@@ -347,13 +425,13 @@
                 </div>
 
                 <div class="buttons">
-                    <button type="button" class="prev" onclick="prevStep(6)">Zpět</button>
+                    <button type="button" class="prev" onclick="prevStep(7)">Zpět</button>
                     <button type="submit" class="next">Odeslat dotazník</button>
                 </div>
             </div>
 
-            <!-- Step 7: Final -->
-            <div class="step" data-step="7">
+            <!-- Step 8: Final -->
+            <div class="step" data-step="8">
                 <div class="success-message">
                     <i>✓</i>
                     <h1>Děkujeme za vaše odpovědi!</h1>

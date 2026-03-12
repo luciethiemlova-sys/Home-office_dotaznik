@@ -7,9 +7,11 @@ function doPost(e) {
         if (sheet.getLastRow() === 0) {
             sheet.appendRow([
                 "Čas", "Kraj", "Role", "Velikost firmy",
-                "Převládající režim ve firmě", "Ideální režim",
-                "Výhody", "Nevýhody", "Frekvence střetů",
-                "Příklad střetu", "Řešení", "Email"
+                "Převládající režim ve firmě",
+                "Ideální stav (srovnání)", "Aktuální stav (srovnání)",
+                "Výhody", "Nevýhody", "Soulad", "Frekvence střetů",
+                "Příklad střetu", "Největší problémy", "Jasná pravidla", "Zneužívání",
+                "Řešení", "Email"
             ]);
         }
 
@@ -20,11 +22,16 @@ function doPost(e) {
             data.role,
             data.size,
             data.current_company_mode,
-            data.ideal_mode,
+            data.compare_ideal,
+            data.compare_actual,
             data.advantage,
             data.disadvantage,
-            data.conflicts,
+            data.alignment_score,
+            data.conflicts_frequency,
             data.conflict_example,
+            data.problems,
+            data.rules_clarity,
+            data.misuse,
             data.solution,
             data.user_email
         ]);
