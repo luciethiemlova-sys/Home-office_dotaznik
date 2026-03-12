@@ -380,40 +380,90 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label class="question">11. Vznikají u vás v práci ohledně home office někdy střety nebo neshody mezi vedením a týmem?</label>
-                    <div class="options-grid">
-                        <label class="option-card">
-                            <input type="radio" name="conflicts_frequency" value="Nikdy"> Nikdy
-                        </label>
-                        <label class="option-card">
-                            <input type="radio" name="conflicts_frequency" value="Zřídka"> Zřídka
-                        </label>
-                        <label class="option-card">
-                            <input type="radio" name="conflicts_frequency" value="Občas"> Občas
-                        </label>
-                        <label class="option-card">
-                            <input type="radio" name="conflicts_frequency" value="Často"> Často
-                        </label>
-                        <label class="option-card">
-                            <input type="radio" name="conflicts_frequency" value="Velmi často"> Velmi často
-                        </label>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="question">11.2 Pokud chcete, uveďte příklad, co způsobilo střet (nepovinná):</label>
-                    <textarea name="conflict_example" rows="3" placeholder="Uveďte konkrétní situaci..."></textarea>
-                </div>
-
                 <div class="buttons">
                     <button type="button" class="prev" onclick="prevStep(6)">Zpět</button>
                     <button type="button" class="next" onclick="nextStep(6)">Další</button>
                 </div>
             </div>
 
-            <!-- Step 7: Solutions & E-commerce -->
+            <!-- Step 7: Management Specific (Conditional) -->
             <div class="step" data-step="7">
+                <div class="form-group">
+                    <label class="question">11V. Čeho se v souvislosti s home office obáváte nejvíce?</label>
+                    <div class="options-grid">
+                        <label class="option-card">
+                            <input type="radio" name="management_fears" value="Pokles výkonu"> Pokles výkonu
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="management_fears" value="Slabší týmová kultura"> Slabší týmová kultura
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="management_fears" value="Nedostatečná kontrola"> Nedostatečná kontrola
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="management_fears" value="Horší komunikace"> Horší komunikace
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="management_fears" value="Nevyužití kancelářských prostor"> Nevyužití kancelářských prostor (fixní náklady)
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="management_fears" value="Ničeho"> Ničeho
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="management_fears" value="Jine"> Jiné:
+                            <input type="text" name="management_fears_other" style="margin-top: 8px; width: auto; flex-grow: 1;">
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="question">12V. Jakým způsobem primárně vyhodnocujete výkon lidí při práci na home office?</label>
+                    <p class="sub-question-hint">(1 odpověď)</p>
+                    <div class="options-grid">
+                        <label class="option-card">
+                            <input type="radio" name="management_evaluation" value="KPI / měřitelné výsledky"> KPI / měřitelné výsledky
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="management_evaluation" value="Plnění úkolů"> Plnění úkolů / projektové milníky
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="management_evaluation" value="Pravidelný reporting"> Pravidelný reporting aktivit (výkaz práce)
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="management_evaluation" value="Přítomnost online"> Přítomnost / dostupnost online
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="management_evaluation" value="Důvěra"> Spíše na základě důvěry
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="management_evaluation" value="Nemáme systém"> Nemáme jasně nastavený systém
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="management_evaluation" value="Nevyhodnocujeme"> Nevyhodnocujeme výkon
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="management_evaluation" value="Nevím"> Nevím, nemám přehled
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="management_evaluation" value="Jine"> Jiné:
+                            <input type="text" name="management_evaluation_other" style="margin-top: 8px; width: auto; flex-grow: 1;">
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="question">13V. Co by vám pomohlo cítit větší jistotu ve vedení týmu/firmy při práci na dálku?</label>
+                    <textarea name="management_needs" rows="4" placeholder="Otevřená odpověď..."></textarea>
+                </div>
+
+                <div class="buttons">
+                    <button type="button" class="prev" onclick="prevStep(7)">Zpět</button>
+                    <button type="button" class="next" onclick="nextStep(7)">Další</button>
+                </div>
+            </div>
+
+            <!-- Step 8: Solutions & E-commerce -->
+            <div class="step" data-step="8">
                 <div class="form-group">
                     <label class="question">12. Co by podle vás pomohlo dosáhnout shody?</label>
                     <textarea name="solution" rows="4" placeholder="Nástroje, pravidla, kompromisy..."></textarea>
@@ -425,13 +475,13 @@
                 </div>
 
                 <div class="buttons">
-                    <button type="button" class="prev" onclick="prevStep(7)">Zpět</button>
+                    <button type="button" class="prev" onclick="prevStep(8)">Zpět</button>
                     <button type="submit" class="next">Odeslat dotazník</button>
                 </div>
             </div>
 
-            <!-- Step 8: Final -->
-            <div class="step" data-step="8">
+            <!-- Step 9: Final -->
+            <div class="step" data-step="9">
                 <div class="success-message">
                     <i>✓</i>
                     <h1>Děkujeme za vaše odpovědi!</h1>
