@@ -18,8 +18,8 @@
                     firem neshodnou na home office, hybridu či kanceláři. Výsledky použiji v přednáškách na Barcamp a
                     Mergado Fest. Anonymní, trvá 3–5 minut.</p>
 
-                <div class="form-group">
-                    <label class="question" for="kraj">1. Zadejte prosím váš kraj (povinné):</label>
+                <div class="form-group" style="margin-top: 20px;">
+                    <label for="kraj" style="display: block; margin-bottom: 8px; font-weight: 500; opacity: 0.9;">Zadejte prosím váš kraj (povinné):</label>
                     <select id="kraj" name="kraj" required>
                         <option value="" disabled selected>Vyberte kraj...</option>
                         <option value="Hlavní město Praha">Hlavní město Praha</option>
@@ -40,7 +40,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="question">2. Jaká je vaše role ve firmě?</label>
+                    <label class="question">1. Jaká je vaše role ve firmě?</label>
                     <div class="options-grid">
                         <label class="option-card">
                             <input type="radio" name="role" value="Specialista" required> Specialista / člen týmu
@@ -71,7 +71,7 @@
             <!-- Step 2: Firm & Preference -->
             <div class="step" data-step="2">
                 <div class="form-group">
-                    <label class="question">3. Velikost vaší firmy (počet zaměstnanců):</label>
+                    <label class="question">2. Velikost vaší firmy (počet zaměstnanců):</label>
                     <div class="options-grid">
                         <label class="option-card">
                             <input type="radio" name="size" value="1-10"> 1–10
@@ -89,21 +89,27 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="question">4. Jaký model práce aktuálně preferujete?</label>
+                    <label class="question">3. Jaký režim práce převládá ve firmě, kde primárně působíte? (většina
+                        týmu)</label>
                     <div class="options-grid">
                         <label class="option-card">
-                            <input type="radio" name="preference" value="Home Office"> Plný home office
+                            <input type="radio" name="current_company_mode" value="Plně remote" required> Plně remote
+                            (většina lidí pracuje na dálku)
                         </label>
                         <label class="option-card">
-                            <input type="radio" name="preference" value="Hybrid"> Hybrid (kombinace)
+                            <input type="radio" name="current_company_mode" value="Hybrid – pevně dané"> Hybrid – pevně
+                            dané dny v kanceláři
                         </label>
                         <label class="option-card">
-                            <input type="radio" name="preference" value="Office"> Plná kancelář
+                            <input type="radio" name="current_company_mode" value="Hybrid – flexibilní"> Hybrid –
+                            flexibilní (docházka není pevně daná)
                         </label>
                         <label class="option-card">
-                            <input type="radio" name="preference" value="Jine"> Jiné:
-                            <input type="text" name="preference_other"
-                                style="margin-top: 8px; width: auto; flex-grow: 1;">
+                            <input type="radio" name="current_company_mode" value="Převážně kancelář"> Převážně kancelář
+                            (HO jen výjimečně)
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="current_company_mode" value="Plně kancelář"> Plně kancelář
                         </label>
                     </div>
                 </div>
@@ -117,56 +123,27 @@
             <!-- Step 3: Productivity Scalers -->
             <div class="step" data-step="3">
                 <div class="form-group">
-                    <label class="question">5. Jak hodnotíte svou produktivitu? (1 = nejnižší, 10 = nejvyšší)</label>
-                    <div class="scale-container">
-                        <div class="scale-row" data-name="prod_ho">
-                            <span>Home office:</span>
-                            <div class="scale-inputs">
-                                <div class="scale-box" data-val="1">1</div>
-                                <div class="scale-box" data-val="2">2</div>
-                                <div class="scale-box" data-val="3">3</div>
-                                <div class="scale-box" data-val="4">4</div>
-                                <div class="scale-box" data-val="5">5</div>
-                                <div class="scale-box" data-val="6">6</div>
-                                <div class="scale-box" data-val="7">7</div>
-                                <div class="scale-box" data-val="8">8</div>
-                                <div class="scale-box" data-val="9">9</div>
-                                <div class="scale-box" data-val="10">10</div>
-                            </div>
-                            <input type="hidden" name="prod_ho" required>
-                        </div>
-                        <div class="scale-row" data-name="prod_hybrid">
-                            <span>Hybrid:</span>
-                            <div class="scale-inputs">
-                                <div class="scale-box" data-val="1">1</div>
-                                <div class="scale-box" data-val="2">2</div>
-                                <div class="scale-box" data-val="3">3</div>
-                                <div class="scale-box" data-val="4">4</div>
-                                <div class="scale-box" data-val="5">5</div>
-                                <div class="scale-box" data-val="6">6</div>
-                                <div class="scale-box" data-val="7">7</div>
-                                <div class="scale-box" data-val="8">8</div>
-                                <div class="scale-box" data-val="9">9</div>
-                                <div class="scale-box" data-val="10">10</div>
-                            </div>
-                            <input type="hidden" name="prod_hybrid" required>
-                        </div>
-                        <div class="scale-row" data-name="prod_office">
-                            <span>Kancelář:</span>
-                            <div class="scale-inputs">
-                                <div class="scale-box" data-val="1">1</div>
-                                <div class="scale-box" data-val="2">2</div>
-                                <div class="scale-box" data-val="3">3</div>
-                                <div class="scale-box" data-val="4">4</div>
-                                <div class="scale-box" data-val="5">5</div>
-                                <div class="scale-box" data-val="6">6</div>
-                                <div class="scale-box" data-val="7">7</div>
-                                <div class="scale-box" data-val="8">8</div>
-                                <div class="scale-box" data-val="9">9</div>
-                                <div class="scale-box" data-val="10">10</div>
-                            </div>
-                            <input type="hidden" name="prod_office" required>
-                        </div>
+                    <label class="question">4. V jakém režimu BYSTE IDEÁLNĚ CHTĚLI pracovat?</label>
+                    <div class="options-grid">
+                        <label class="option-card">
+                            <input type="radio" name="ideal_mode" value="Plně remote" required> Plně remote (většina
+                            lidí pracuje na dálku)
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="ideal_mode" value="Hybrid – pevně dané"> Hybrid – pevně dané dny v
+                            kanceláři
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="ideal_mode" value="Hybrid – flexibilní"> Hybrid – flexibilní
+                            (docházka není pevně daná)
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="ideal_mode" value="Převážně kancelář"> Převážně kancelář (HO jen
+                            výjimečně)
+                        </label>
+                        <label class="option-card">
+                            <input type="radio" name="ideal_mode" value="Plně kancelář"> Plně kancelář
+                        </label>
                     </div>
                 </div>
 
@@ -179,7 +156,7 @@
             <!-- Step 4: Advantages & Disadvantages -->
             <div class="step" data-step="4">
                 <div class="form-group">
-                    <label class="question">6. Co je pro vás největší výhoda home office? (max 2):</label>
+                    <label class="question">5. Co je pro vás největší výhoda home office? (max 2):</label>
                     <span class="max-selection-hint">Můžete vybrat až 2 možnosti</span>
                     <div class="options-grid">
                         <label class="option-card">
@@ -203,7 +180,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="question">7. Co je pro vás největší nevýhoda home office? (max 2):</label>
+                    <label class="question">6. Co je pro vás největší nevýhoda home office? (max 2):</label>
                     <span class="max-selection-hint">Můžete vybrat až 2 možnosti</span>
                     <div class="options-grid">
                         <label class="option-card">
@@ -235,7 +212,7 @@
             <!-- Step 5: Conflicts & Examples -->
             <div class="step" data-step="5">
                 <div class="form-group">
-                    <label class="question">8. Jak často vznikají střety ohledně home office?</label>
+                    <label class="question">7. Jak často vznikají střety ohledně home office?</label>
                     <div class="options-grid">
                         <label class="option-card">
                             <input type="radio" name="conflicts" value="Daily"> Každý den/týden
@@ -253,7 +230,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="question">9. Popište krátce reálný příklad střetu z vaší zkušenosti:</label>
+                    <label class="question">8. Popište krátce reálný příklad střetu z vaší zkušenosti:</label>
                     <textarea name="conflict_example" rows="4"
                         placeholder="Co ho způsobilo a jak jste ho řešili?"></textarea>
                 </div>
@@ -267,7 +244,7 @@
             <!-- Step 6: Solutions & E-commerce -->
             <div class="step" data-step="6">
                 <div class="form-group">
-                    <label class="question">10. Co by podle vás pomohlo dosáhnout shody?</label>
+                    <label class="question">9. Co by podle vás pomohlo dosáhnout shody?</label>
                     <textarea name="solution" rows="4" placeholder="Nástroje, pravidla, kompromisy..."></textarea>
                 </div>
 

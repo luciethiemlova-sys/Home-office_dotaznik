@@ -6,8 +6,8 @@ function doPost(e) {
         // Pokud je tabulka prázdná, přidáme záhlaví
         if (sheet.getLastRow() === 0) {
             sheet.appendRow([
-                "Čas", "Kraj", "Role", "Velikost firmy", "Preference",
-                "Prod. HO", "Prod. Hybrid", "Prod. Office",
+                "Čas", "Kraj", "Role", "Velikost firmy",
+                "Převládající režim ve firmě", "Ideální režim",
                 "Výhody", "Nevýhody", "Frekvence střetů",
                 "Příklad střetu", "Řešení", "Email"
             ]);
@@ -19,10 +19,8 @@ function doPost(e) {
             data.kraj,
             data.role,
             data.size,
-            data.preference,
-            data.prod_ho,
-            data.prod_hybrid,
-            data.prod_office,
+            data.current_company_mode,
+            data.ideal_mode,
             data.advantage,
             data.disadvantage,
             data.conflicts,
