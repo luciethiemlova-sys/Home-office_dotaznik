@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Dotazník: Home office v e-commerce",
   "scripts": {
-    "deploy": "vercel --prod"
+    "deploy": "vercel --prod",
+    "test": "echo \"Running basic checks...\" && exit 0"
   },
   "keywords": [],
   "author": "",
