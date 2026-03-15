@@ -218,10 +218,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-
-        const submitButton = form.querySelector('button[type="submit"]');
+    window.submitSurvey = async () => {
+        const submitButton = form.querySelector('button[onclick="submitSurvey()"]');
         submitButton.disabled = true;
         submitButton.textContent = 'Odesílám...';
 
@@ -234,5 +232,5 @@ document.addEventListener('DOMContentLoaded', () => {
             submitButton.disabled = false;
             submitButton.textContent = 'Odeslat dotazník';
         }
-    });
+    };
 });
