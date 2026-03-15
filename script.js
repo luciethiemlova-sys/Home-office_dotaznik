@@ -60,33 +60,46 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     window.nextStep = (currentStep) => {
-        // Simple validation for required fields in current step
         const currentPane = document.querySelector(`.step[data-step="${currentStep}"]`);
-        const inputs = currentPane.querySelectorAll('[required]');
         let valid = true;
 
-        inputs.forEach(input => {
-            // Special check for hidden inputs (like scales)
-            if (input.tagName === 'INPUT' && input.type === 'hidden') {
+        // Najdi všechny required inputy v tomto kroku
+        const requiredInputs = currentPane.querySelectorAll('[required]');
+
+        // Sesbírej unikátní skupiny (podle name) a typ
+        const checkedGroups = new Set();
+
+        requiredInputs.forEach(input => {
+            if (input.type === 'hidden') {
+                // Scale boxy — kontroluj neprázdnou value
+                const container = input.closest('.scale-container');
                 if (!input.value) {
                     valid = false;
-                    // Highlight the container instead
-                    const container = input.closest('.scale-container');
-                    if (container) container.style.border = '1px solid #ef4444';
+                    if (container) container.style.outline = '2px solid #ef4444';
                 } else {
-                    const container = input.closest('.scale-container');
-                    if (container) container.style.border = 'none';
+                    if (container) container.style.outline = 'none';
                 }
-            } else if (!input.value) {
-                valid = false;
-                input.style.borderColor = '#ef4444';
-            } else {
-                input.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+            } else if (input.type === 'radio' || input.type === 'checkbox') {
+                // Každou skupinu (name) zkontroluj jen jednou
+                if (checkedGroups.has(input.name)) return;
+                checkedGroups.add(input.name);
+
+                const group = currentPane.querySelectorAll(`input[name="${input.name}"]`);
+                const isChecked = currentPane.querySelector(`input[name="${input.name}"]:checked`);
+                const grid = input.closest('.options-grid') || input.closest('.comparison-grid');
+
+                if (!isChecked) {
+                    valid = false;
+                    if (grid) grid.style.outline = '2px solid #ef4444';
+                    if (grid) grid.style.borderRadius = '8px';
+                } else {
+                    if (grid) grid.style.outline = 'none';
+                }
             }
         });
 
         if (!valid) {
-            alert('Prosím vyplňte všechna povinná pole.');
+            alert('Prosím odpovězte na všechny povinné otázky na této stránce.');
             return;
         }
 
