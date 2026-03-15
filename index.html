@@ -76,7 +76,7 @@
                     <label class="question">2. Velikost vaší firmy (počet zaměstnanců):</label>
                     <div class="options-grid">
                         <label class="option-card">
-                            <input type="radio" name="size" value="1-10"> 1–10
+                            <input type="radio" name="size" value="1-10" required> 1–10
                         </label>
                         <label class="option-card">
                             <input type="radio" name="size" value="11-50"> 11–50
@@ -91,8 +91,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="question">3. Jaký režim práce převládá ve firmě, kde primárně působíte? (většina
-                        týmu)</label>
+                    <label class="question">3. Jaký režim práce převládá ve firmě, kde působíte? (většina týmu)</label>
                     <div class="options-grid">
                         <label class="option-card">
                             <input type="radio" name="current_company_mode" value="Plně remote" required> Plně remote
@@ -289,7 +288,7 @@
                     <span class="max-selection-hint">Můžete vybrat až 2 možnosti</span>
                     <div class="options-grid">
                         <label class="option-card">
-                            <input type="checkbox" name="problems" value="Měření výkonu"> Měření výkonu
+                            <input type="checkbox" name="problems" value="Měření výkonu" required> Měření výkonu
                         </label>
                         <label class="option-card">
                             <input type="checkbox" name="problems" value="Důvěra"> Důvěra
@@ -380,7 +379,7 @@
                     <label class="question">10. Čeho se v souvislosti s home office obáváte nejvíce?</label>
                     <div class="options-grid">
                         <label class="option-card">
-                            <input type="radio" name="management_fears" value="Pokles výkonu"> Pokles výkonu
+                            <input type="radio" name="management_fears" value="Pokles výkonu" required> Pokles výkonu
                         </label>
                         <label class="option-card">
                             <input type="radio" name="management_fears" value="Slabší týmová kultura"> Slabší týmová kultura
@@ -409,7 +408,7 @@
                     <p class="sub-question-hint">(1 odpověď)</p>
                     <div class="options-grid">
                         <label class="option-card">
-                            <input type="radio" name="management_evaluation" value="KPI / měřitelné výsledky"> KPI / měřitelné výsledky
+                            <input type="radio" name="management_evaluation" value="KPI / měřitelné výsledky" required> KPI / měřitelné výsledky
                         </label>
                         <label class="option-card">
                             <input type="radio" name="management_evaluation" value="Plnění úkolů"> Plnění úkolů / projektové milníky
@@ -456,7 +455,7 @@
                     <label class="question">10. Co vám na home office nejvíce vyhovuje?</label>
                     <div class="options-grid">
                         <label class="option-card">
-                            <input type="radio" name="employee_advantages" value="Flexibilita"> Flexibilita
+                            <input type="radio" name="employee_advantages" value="Flexibilita" required> Flexibilita
                         </label>
                         <label class="option-card">
                             <input type="radio" name="employee_advantages" value="Soustředění"> Větší soustředění, klid na práci
@@ -477,7 +476,7 @@
                     <label class="question">11. Jak efektivně se vám pracuje při home office ve srovnání s kanceláří?</label>
                     <div class="options-grid">
                         <label class="option-card">
-                            <input type="radio" name="employee_efficiency" value="Mnohem méně"> Mnohem méně efektivně než v kanceláři
+                            <input type="radio" name="employee_efficiency" value="Mnohem méně" required> Mnohem méně efektivně než v kanceláři
                         </label>
                         <label class="option-card">
                             <input type="radio" name="employee_efficiency" value="Trochu méně"> Trochu méně efektivně než v kanceláři
@@ -498,7 +497,7 @@
                     <label class="question">12. Máte pocit, že vám vedení důvěřuje?</label>
                     <div class="options-grid">
                         <label class="option-card">
-                            <input type="radio" name="employee_trust" value="Ano"> Ano
+                            <input type="radio" name="employee_trust" value="Ano" required> Ano
                         </label>
                         <label class="option-card">
                             <input type="radio" name="employee_trust" value="Spíš ano"> Spíš ano
@@ -528,11 +527,6 @@
                 <div class="form-group">
                     <label class="question">14. Kdybyste měli shrnout jednou větou, proč se kolem home office často „nemůžeme domluvit“, co byste řekli?</label>
                     <textarea name="summary_reason" rows="4" placeholder="Otevřená odpověď – z toho vzniknou nejlepší citace do prezentace..."></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label class="question">Chcete-li výsledky průzkumu, napište váš e-mail:</label>
-                    <input type="text" name="user_email" placeholder="vas@email.cz">
                 </div>
 
                 <div class="buttons">
