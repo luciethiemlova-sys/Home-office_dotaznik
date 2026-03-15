@@ -103,12 +103,22 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Conditional logic for Step 3
+        // Early exit: Externista on step 1
+        if (currentStep === 1) {
+            const role = currentPane.querySelector('input[name="role"]:checked')?.value;
+            if (role === 'Externista') {
+                goToStep(12);
+                return;
+            }
+        }
+
+        // Conditional logic for Step 3 – Plně kancelář early exit
         if (currentStep === 3) {
             const actualMode = currentPane.querySelector('input[name="compare_actual"]:checked');
             if (actualMode && actualMode.value === 'Plně kancelář') {
-                // Trigger form submission
-                form.dispatchEvent(new Event('submit', { cancelable: true }));
+                // Submit data silently and show goodbye screen
+                submitFormData();
+                goToStep(13);
                 return;
             }
         }
@@ -134,6 +144,12 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     window.prevStep = (currentStep) => {
+        // Back from Plně kancelář goodbye → return to Q4 (step 3)
+        if (currentStep === 13) {
+            goToStep(3);
+            return;
+        }
+
         // Returning to branch from Step 10
         if (currentStep === 10) {
             const role = document.querySelector('input[name="role"]:checked')?.value;
@@ -167,13 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-
-        const submitButton = form.querySelector('button[type="submit"]');
-        submitButton.disabled = true;
-        submitButton.textContent = 'Odesílám...';
-
+    async function submitFormData() {
         try {
             const formData = new FormData(form);
             const data = Object.fromEntries(formData.entries());
@@ -203,9 +213,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 },
                 body: JSON.stringify(data)
             });
+        } catch (error) {
+            console.error('Chyba při odesílání:', error);
+        }
+    }
 
-            goToStep(10); // Ukázat úspěch
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
 
+        const submitButton = form.querySelector('button[type="submit"]');
+        submitButton.disabled = true;
+        submitButton.textContent = 'Odesílám...';
+
+        try {
+            await submitFormData();
+            goToStep(11); // Ukázat úspěch
         } catch (error) {
             console.error('Chyba:', error);
             alert('Došlo k technické chybě. Zkontrolujte prosím připojení k internetu.');
