@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('survey-form');
     const progressBar = document.getElementById('progress');
     const steps = document.querySelectorAll('.step');
-    const totalSteps = steps.length - 1; // Exclude Success step (9 now, excluding Step 10)
 
     // Handle Option Card Selections
     document.querySelectorAll('.option-card').forEach(card => {
@@ -176,7 +175,22 @@ document.addEventListener('DOMContentLoaded', () => {
         if (targetStep) targetStep.classList.add('active');
 
         // Update progress bar
-        const progressPercent = ((stepNumber - 1) / totalSteps) * 100;
+        const progressMap = {
+            1: 0,
+            2: 12,
+            3: 25,
+            4: 37,
+            5: 50,
+            6: 62,
+            7: 75,
+            8: 87,
+            9: 87,
+            10: 95,
+            11: 100,
+            12: 100,
+            13: 100
+        };
+        const progressPercent = progressMap[stepNumber] || 0;
         progressBar.style.width = `${progressPercent}%`;
 
         // Scroll to top
