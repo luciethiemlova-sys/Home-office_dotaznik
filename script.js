@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             } else {
                 // Checkbox max-2 validation
-                if (input.name === 'advantage' || input.name === 'disadvantage' || input.name === 'problems') {
+                if (input.name === 'problems') {
                     const checked = document.querySelectorAll(`input[name="${input.name}"]:checked`);
                     if (checked.length > 2) {
                         input.checked = false;
