@@ -4,7 +4,7 @@
   "description": "Dotazník: Home office v e-commerce",
   "scripts": {
     "deploy": "vercel --prod",
-    "test": "echo \"Running basic checks...\" && exit 0"
+    "test": "node test.js"
   },
   "keywords": [],
   "author": "",
