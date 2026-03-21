@@ -13,7 +13,7 @@ function doPost(e) {
                 "Největší problémy", "Jasná pravidla", "Zneužívání",
                 "Obavy (Management)", "Vyhodnocování (Management)", "Potřeby vedení (Management)",
                 "Výhody (Employee)", "Efektivita (Employee)", "Důvěra (Employee)", "Potřeby zaměstnanců (Employee)",
-                "Proč se neshodneme (Závěr)", "Email"
+                "Proč se neshodneme (Závěr)"
             ]);
         }
 
@@ -39,8 +39,7 @@ function doPost(e) {
             data.employee_efficiency,
             data.employee_trust,
             data.employee_needs,
-            data.summary_reason,
-            data.user_email
+            data.summary_reason
         ]);
 
         return ContentService.createTextOutput(JSON.stringify({ "result": "success" }))
