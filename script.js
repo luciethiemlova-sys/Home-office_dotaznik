@@ -94,6 +94,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else {
                     if (grid) grid.style.outline = 'none';
                 }
+            } else if (input.tagName === 'SELECT' || input.tagName === 'TEXTAREA') {
+                // Textarea a Select
+                if (!input.value.trim()) {
+                    valid = false;
+                    input.style.outline = '2px solid #ef4444';
+                    input.style.borderRadius = '8px';
+                } else {
+                    input.style.outline = 'none';
+                }
             }
         });
 
